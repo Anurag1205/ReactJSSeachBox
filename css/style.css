@@ -1,0 +1,30 @@
+body {
+  font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #f0f0f0;
+}
+.container {
+    padding-top: 30px;
+}
+.displayRepo img ,  .displayUser img {
+    height: 150px;
+    padding: 20px;
+}
+.displayRepo .row , .displayUser .row {
+    border: 1px solid #e2e2e2;
+    margin: 10px;
+    border-radius: 10px;
+    background: white;
+}
+.fa-5x {
+    font-size: 5em;
+    margin: 0 auto;
+    display: block;
+}
+h3.user-style {
+    color: #5a5a5a;
+    font-style: initial;
+    font-weight: 800;
+}
