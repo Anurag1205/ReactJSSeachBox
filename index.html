@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Hello React</title>
+    <title>Github Search App</title>
     <script src="https://npmcdn.com/react@15.3.1/dist/react.js"></script>
     <script src="https://npmcdn.com/react-dom@15.3.1/dist/react-dom.js"></script>
     <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
@@ -16,134 +16,11 @@
   <body>
 
     <div id="content" class="container-fluid"></div>
-      <script type ="text/jsx">
+      <script type ="text/jsx" src = "app/script.js"></script>
+        <script type ="text/jsx" src = "app/search.js">
 
 
 
-  var GitSearch = React.createClass({
-        getDetailfromServer:function (){
-              $.ajax({
-                    url: this.props.url,
-                    dataType: 'json',
-                    cache: false,
-                    success: function(data) {
-                      this.setState({data: data});
-                    }.bind(this),
-                      error: function(xhr, status, err) {
-                        console.error(this.props.url, status, err.toString());
-                    }.bind(this)
-                });
-      },
-        getInitialState: function() {
-                    return {data: []};
-     },
-        componentDidMount: function() {
-
-              this.getDetailfromServer();
-
-    },
-      render: function() {
-              return (
-                <div className ="container">
-                  <div className="gitSearch ">
-                        <h3 className="text-center">Github Search App</h3>
-                        <i className="fa fa-github-alt fa-5x text-center" aria-hidden="true"></i>
-                          <SearchBox />,
-                          <h1 className="text-center">Git User List </h1>
-
-                              <DisplayUser data = {this.state.data} />,
-
-                  </div>
-                </div>
-            );
-              }
-      });
-
-    var DisplayUser = React.createClass({
-
-      render: function (){
-        var userList = this.props.data.map(function(user){
-          return (
-            <user>
-                  <div className="row">
-                      <div className="col-md-2">
-                          <img src={user.avatar_url} className="img-responsive"/>
-                      </div>
-                      <div className="col-md-8">
-                          <h3 className="user-style" key = {user.id}>{user.login} </h3>
-                          <a href={user.repos_url}> View repo </a>
-                      </div>
-                    </div>
-              </user>
-          );
-        });
-          return (
-         <div className = "displayUser">
-          {userList}
-         </div>
-      );
-      }
-
-    });
-
-    // var DisplayRepo = React.createClass ({
-    //         render: function () {
-    //             var getRepoList = this.props.data.map(function(repos){
-    //               return (
-    //                 <repos>
-    //                 <div className="row">
-    //                     <div className="col-md-2">
-    //                         <img src={repos.avatar_url} className="img-responsive"/>
-    //                     </div>
-    //                     <div className="col-md-8">
-    //                         <h3 className="user-style">  {repos.login} </h3>
-    //                         <a href={repos.issues_url}> {repos.issues_count} </a>
-    //                     </div>
-    //                   </div>
-    //
-    //                 </repos>
-    //               );
-    //             });
-    //             return (
-    //                 <div className = "displayRepo">
-    //                   {getRepoList}
-    //                 </div>
-    //             )
-    //         }
-    //       });
-
-   //
-
-    var SearchBox = React.createClass ({
-      render : function () {
-        return (
-            <div className="row">
-              <div className="col-md-12">
-                <div className="input-group">
-                    <span className="input-group-btn">
-                      <button className="btn btn-default" type="button" onClick ={this.props.data}>Go!</button>
-                    </span>
-                    <input type="text" className="form-control" placeholder="Search for user /repo" />
-                </div>
-              </div>
-          </div>
-
-        );
-      }
-    });
-
-    // var ShowOpenIssue = React.createClass ({
-    //
-    // });
-    //
-    // var SearchByTag = React.createClass ({
-    //
-    // });
-    ReactDOM.render(
-
-          <GitSearch url = "https://api.github.com/users"/>,
-            document.getElementById('content')
-          );
       </script>
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
